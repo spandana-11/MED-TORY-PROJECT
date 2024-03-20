@@ -1,0 +1,158 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+:root {
+  --main-head-color: #d8d2d2;
+  --main-nav-color: #bbb9b5;
+  --main-body-color: #eeedeb;
+  --main-blue-color: rgb(3, 3, 96);
+  --main-blueHover-color: rgba(18, 18, 127, 0.855);
+  --main-label-color: rgba(90, 86, 86, 0.647);
+  --main-white-color: rgb(255, 255, 255);
+}
+body {
+  background-color: var(--main-body-color);
+}
+h1 {
+  font-size: 24px;
+}
+h2 {
+  font-size: 20px;
+}
+
+/* Styles the header element */
+header {
+  display: flex;
+  height: 70px;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  background-color: var(--main-head-color);
+}
+.navber1 {
+  position: relative;
+  top: 70px;
+  width: 100%;
+  background-color: var(--main-nav-color);
+  margin-bottom: 70px;
+}
+.navber1 a{
+  text-decoration: none;
+}
+.active{
+  background-color: var(--main-blue-color);
+
+}
+.logo {
+  margin-left: 25px;
+}
+/* Styles elements with the class .navber-item */
+.navber-item {
+  display: flex;
+  justify-content: end;
+  margin-right: 25px;
+}
+
+/* Styles elements with the class .navber-item and its .nav-item children */
+.navber-item .nav-item {
+  padding: 10px;
+  /* background-color: var(--main-blue-color); */
+  list-style-type: none;
+  color: white;
+  cursor: pointer;
+}
+/* =============AddItem main Form================ */
+form{
+  padding-bottom: 10px;
+}
+.addItemTitle{
+color: var(--main-blue-color);
+}
+
+/* Styles the <span> elements within .inputFields */
+.inputFields span {
+  color: red;
+}
+
+/* Styles the <label> elements within .inputFields */
+.inputFields label {
+  color: var(--main-label-color);
+  font-size: 16px;
+}
+
+/* Styles elements with the class .addItem */
+.addItem {
+  font-size: 24px;
+}
+
+/* Styles <div> elements within .inputFields */
+.inputFields div {
+  height: 95px;
+}
+.inputFields input,
+.inputFields select {
+  background-color: transparent;
+  border: 1px solid var(--main-label-color);
+}
+.inputFields input[type="file"] {
+  float: left;
+  border: none;
+}
+/* Styles for the container div */
+.inputFields .imageUpload {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border: 1px solid var(--main-label-color);
+  width: 100%;
+  display: flex;
+  border-radius: 7px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  cursor: pointer;
+}
+
+/* Styles for the label element */
+.inputFields .imageUpload label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+/* Styles for the input element */
+.inputFields .imageUpload input {
+  display: none;
+  cursor: pointer;
+}
+
+/* Styles for the uploaded image */
+.inputFields .imageUpload img {
+  max-width: 10%;
+  height: 50px;
+}
+.inputFields .faCloudArrowUp {
+  font-size: 22px;
+  color: var(--main-blue-color);
+  cursor: pointer;
+}
+.submit-btn {
+  background-color: var(--main-blue-color);
+  color: var(--main-white-color);
+  text-transform: uppercase;
+}
+.submit-btn:hover {
+  background-color: var(--main-blueHover-color);
+  color: var(--main-white-color);
+}
+
+/* .imageUpload{
+display: flex;
+} */
