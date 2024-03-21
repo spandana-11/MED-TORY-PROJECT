@@ -8,9 +8,12 @@ export const UserContext = createContext();
 // Define UserProvider functional component to provide context to its children
 export const UserProvider = ({ children }) => {
   // Define state variables using useState hook
-  const [existing, setExisting] = useState([]); // State for storing existing items
-  const [columns, setColumns] = useState([]); // State for storing column names
-  const [error, setError] = useState(false); // State for handling errors
+  const [existing, setExisting] = useState([]);   
+  const [columns, setColumns] = useState([]);    
+  const [error, setError] = useState(false);   
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   const [formData, setFormData] = useState({
     // State for storing form data
     itemname: "",
@@ -72,7 +75,7 @@ export const UserProvider = ({ children }) => {
             text: "Item added to inventory successfully",
             icon: "success",
           });
-
+          setShow(false)
           // Reset the form data
           setFormData({
             itemname: "",
@@ -117,6 +120,9 @@ console.log(existing);
         setError,
         existing,
         columns,
+        handleClose,
+        handleShow,
+        show
       }}
     >
       {children} {/* Render children components */}

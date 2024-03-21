@@ -36,7 +36,7 @@ const InputData = () => {
               return (
                 <>
                   {/* Table row */}
-                  <tr height={"10px"} className="bg-primary">
+                  <tr height={"10px"} className="bg-primary" key={itemImage.id}>
                     {/* Table data cells */}
                     <td>{itemImage.id}</td> {/* ID column */}
                     <td>{itemImage.itemname}</td> {/* Item Name column */}

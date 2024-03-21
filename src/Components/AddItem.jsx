@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import "./addItem.css";
@@ -7,19 +7,24 @@ import InputData from "./InputData";
 import { AddItemContext } from "../UseContext/UseContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCloudArrowUp } from "@fortawesome/free-solid-svg-icons";
+import Button from "react-bootstrap/Button";
+
 function AddItem() {
-  // Retrieve data from context
   const getData = AddItemContext();
+  const {
+    formData,
+    setFormData,
+    handleFormSubmit,
+    error,
+    setError,
+    existing,
+    handleShow,
+  } = getData;
 
-  // Destructuring values from context
-  const { formData, setFormData, handleFormSubmit, error, setError, existing } =
-    getData;
-
-  // State for managing errors related to unit price and initial quantity
   const [unitPriceError, setUnitPriceError] = useState(false);
   const [initialQuantityError, setInitialQuantityError] = useState(false);
+  const [isFormValid, setIsFormValid] = useState(false); // State to track form validity
 
-  // Inline style for consistency
   const style = {
     width: "70%",
     marginLeft: "auto",
@@ -28,24 +33,33 @@ function AddItem() {
     flexWrap: "wrap",
   };
 
-  // Handler for file input change
   const handleFileChange = (e) => {
     setFormData({ ...formData, imageUpload: e.target.files[0].name });
+ 
   };
+ 
+
+  // useEffect to check form validity whenever formData changes
+  useEffect(() => {
+    // Check if all required fields are filled
+    const isValid =
+      formData.itemname &&
+    
+      formData.category &&
+      formData.manufacturer &&
+      formData.unitOfMeasure &&
+      formData.unitPrice &&
+      formData.initialQuantity;
+    setIsFormValid(isValid); // Update form validity state
+  }, [formData]);
 
   return (
     <>
-      {/* Header component */}
       <Header />
-
-      {/* Form section */}
       <div className="d-flex w-100 justify-content-center align-items-center">
-        <form className="col-4 w-75" onSubmit={handleFormSubmit}>
-          <h1 className="text-center addItemTitle">ADD ITEM</h1>
-
-          {/* Input fields */}
+        <form className="col-4 w-75">
+          <h1 className="text-center addItemTitle font-bold">ADD ITEM</h1>
           <div className="inputFields" style={style}>
-            {/* Item Name */}
             <div className="p-2 col-lg-6 col-md-6 col-sm-12">
               <label htmlFor="itemname" className="form-label">
                 Item Name <span>*</span>
@@ -57,7 +71,10 @@ function AddItem() {
                 name="itemname"
                 value={formData.itemname}
                 onChange={(e) =>
-                  setFormData({ ...formData, itemname: e.target.value.toLowerCase()})
+                  setFormData({
+                    ...formData,
+                    itemname: e.target.value.toLowerCase(),
+                  })
                 }
                 required
                 maxLength={"100"}
@@ -126,7 +143,10 @@ function AddItem() {
                 name="manufacturer"
                 value={formData.manufacturer}
                 onChange={(e) =>
-                  setFormData({ ...formData, manufacturer: e.target.value.toLowerCase() })
+                  setFormData({
+                    ...formData,
+                    manufacturer: e.target.value.toLowerCase(),
+                  })
                 }
                 required
                 maxLength={"100"}
@@ -242,7 +262,7 @@ function AddItem() {
             </label>
             <div className="mb-3 p-2 col-lg-12 col-md-12 col-sm-12 ">
               <label htmlFor="imageUpload" className="form-label  imageUpload">
-               Choose File....
+              {formData.imageUpload ? formData.imageUpload:"Choose file...."}
                 <input
                   type="file"
                   className="form-control"
@@ -251,33 +271,35 @@ function AddItem() {
                   accept="image/png, image/jpeg, image/jpg"
                   onChange={handleFileChange}
                 />
-                <FontAwesomeIcon icon={faCloudArrowUp} className="faCloudArrowUp"/>
+                <FontAwesomeIcon
+                  icon={faCloudArrowUp}
+                  className="faCloudArrowUp"
+                />
               </label>
-
               {formData.imageUpload && (
                 <div className="mb-3 p-2 col-lg-12 col-md-12 col-sm-12">
-                  <label className="form-label">Uploaded Image</label>
+                  <label className="form-label mx-3">Uploaded Image</label>
                   <img
                     src={`images/${formData.imageUpload}`}
                     alt="Not Available"
                     style={{ maxWidth: "10%", height: "50px" }}
                   />
+                  
                 </div>
               )}
             </div>
           </div>
-
-          {/* Submit Button */}
           <div className="submit_btn d-flex justify-content-end" style={style}>
-            <button type="submit" className="btn w-25 submit-btn">
-              Submit
-            </button>
+            <Button
+              variant="primary"
+              onClick={handleShow}
+              disabled={!isFormValid}
+            >
+              PREVIEW
+            </Button>
           </div>
         </form>
       </div>
-
-      {/* InputData component */}
-      {/* <InputData /> */}
     </>
   );
 }

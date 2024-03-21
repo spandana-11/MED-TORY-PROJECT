@@ -41,12 +41,11 @@ header {
   background-color: var(--main-nav-color);
   margin-bottom: 70px;
 }
-.navber1 a{
+.navber1 a {
   text-decoration: none;
 }
-.active{
+.active {
   background-color: var(--main-blue-color);
-
 }
 .logo {
   margin-left: 25px;
@@ -67,11 +66,11 @@ header {
   cursor: pointer;
 }
 /* =============AddItem main Form================ */
-form{
+form {
   padding-bottom: 10px;
 }
-.addItemTitle{
-color: var(--main-blue-color);
+.addItemTitle {
+  color: var(--main-blue-color);
 }
 
 /* Styles the <span> elements within .inputFields */
@@ -140,11 +139,11 @@ color: var(--main-blue-color);
 }
 .inputFields .faCloudArrowUp {
   font-size: 22px;
-  color: var(--main-blue-color);
+  color: var(--main-blue-color) ;
   cursor: pointer;
 }
 .submit-btn {
-  background-color: var(--main-blue-color);
+  background-color: var(--main-blue-color)!important;
   color: var(--main-white-color);
   text-transform: uppercase;
 }

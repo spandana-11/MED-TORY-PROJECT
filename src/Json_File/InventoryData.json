@@ -11,6 +11,42 @@
       "initialQuantity": 14,
       "expirationDate": "2024-03-22",
       "imageUpload": "contec-pulse-oximeter-cms50d-600x600.png"
+    },
+    {
+      "itemname": "bandages",
+      "description": "fgdfg",
+      "category": "medical",
+      "manufacturer": "abc",
+      "unitOfMeasure": "box",
+      "unitPrice": 76,
+      "initialQuantity": 56445,
+      "expirationDate": "2024-03-24",
+      "imageUpload": "BGGG.jpg",
+      "id": 2001
+    },
+    {
+      "itemname": "bandages",
+      "description": "ghfh",
+      "category": "medical",
+      "manufacturer": "abc",
+      "unitOfMeasure": "box",
+      "unitPrice": 76,
+      "initialQuantity": 56445,
+      "expirationDate": "2024-03-24",
+      "imageUpload": "contec-pulse-oximeter-cms50d-600x600.png",
+      "id": 2002
+    },
+    {
+      "itemname": "oximeter",
+      "description": "ghfh",
+      "category": "ot",
+      "manufacturer": "abc1",
+      "unitOfMeasure": "strips",
+      "unitPrice": 54,
+      "initialQuantity": 56445,
+      "expirationDate": "2024-03-24",
+      "imageUpload": "pharmacist.jpg",
+      "id": 2003
     }
   ]
 }
