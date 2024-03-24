@@ -1,21 +1,20 @@
-import { createContext, useContext, useState, useEffect } from "react"; // Importing necessary modules from React
-import axios from "axios"; // Importing Axios for making HTTP requests
-import Swal from "sweetalert"; // Importing SweetAlert library for displaying alerts
+import { createContext, useContext, useState, useEffect } from "react";
+import axios from "axios";
+import Swal from "sweetalert";
+import DotLoader from "react-spinners/ClipLoader";
 
-// Create a new context named UserContext
 export const UserContext = createContext();
 
-// Define UserProvider functional component to provide context to its children
 export const UserProvider = ({ children }) => {
-  // Define state variables using useState hook
-  const [existing, setExisting] = useState([]);   
-  const [columns, setColumns] = useState([]);    
-  const [error, setError] = useState(false);   
+  const [existing, setExisting] = useState([]);
+  const [columns, setColumns] = useState([]);
+  const [cataroty, setCataroty] = useState([]);
+  const [error, setError] = useState(false);
   const [show, setShow] = useState(false);
+  const [loading, setLoading] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [formData, setFormData] = useState({
-    // State for storing form data
     itemname: "",
     description: "",
     category: "",
@@ -27,56 +26,88 @@ export const UserProvider = ({ children }) => {
     imageUpload: null,
   });
 
-  // useEffect hook to fetch existing items from the API endpoint
   useEffect(() => {
-    axios // Axios GET request to fetch existing items
-      .get("http://localhost:4800/ItemData")
-      .then((response) => {
-        // Success callback
-        // Set existing items and column names
-        setExisting(response.data);
-        setColumns(Object.keys(response.data[0]));
-      })
-      .catch((error) => {
-        // Error callback
-        console.error("Error fetching existing items:", error);
-        setError(true); // Set error state to true
-      });
-  }, []); // Empty dependency array to run effect only once on mount
-  console.log(existing);
-  // Function to handle form submission
-  function handleFormSubmit(event) {
-    event.preventDefault(); // Prevent default form submission behavior
+    setLoading(true);
+    try {
+      axios.get("http://localhost:4800/ItemData")
+        .then((response) => {
+          if (response.status === 404) {
+            throw new Error("Data Not Found"); // Throw an error if data is not found
+          }
+          setExisting(response.data);
+          setLoading(false);
+          if (response.data.length > 0) {
+            setColumns(Object.keys(response.data[0]));
+          } else {
+            setColumns([]);
+          }
+        })
+        .catch((error) => {
+          if (error.message === "Data Not Found") {
+            // Handle 404 error here
+            // You can set a state variable to control rendering of the message
+            setError(true);
+          } else {
+            console.error("Error fetching existing items:", error);
+            setError(true);
+          }
+          setLoading(false);
+        });
+    } catch (error) {
+      console.error("Error fetching existing items:", error);
+      setError(true);
+      setLoading(false);
+    }
+  }, []);
+  
 
-    // Check if any existing item matches the form data
+  useEffect(() => {
+    setError(true)
+    try {
+      axios.get("http://localhost:4800/Catagory").then((response) => {
+        if (response.status === 404) {
+          console.log("Category data not found");
+           throw new Error("Category Data Not Found"); // Throw an error if category data is not found
+        }
+        setError(false); // No error occurred, so set error state to false
+        setCataroty(response.data);
+      });
+    } catch (error) {
+      console.error("Error fetching category data:", error);
+      if (error.message === "Category Data Not Found") {
+        // Handle category data not found error here
+        setError(true);
+      } else {
+        
+        // Handle other errors
+      }
+    }
+  }, []);
+  
+
+  function handleFormSubmit(event) {
+    event.preventDefault();
     const isDuplicate = existing.some((item) => {
       return (
         item.itemname === formData.itemname &&
         item.manufacturer === formData.manufacturer
       );
     });
-    console.log(isDuplicate);
     if (isDuplicate) {
-      // If item is a duplicate, display an error alert
       Swal({
         title: "Duplicate Item",
         text: "Item already exists in the record",
         icon: "error",
       });
     } else {
-      // If item is not a duplicate, add the new item
-      axios // Axios POST request to add the new item
-        .post("http://localhost:4800/ItemData", formData)
-        .then((res) => {
-          // Success callback
+      try {
+        axios.post("http://localhost:4800/ItemData", formData).then((res) => {
           Swal({
-            // Display success alert
             title: "Success!",
             text: "Item added to inventory successfully",
             icon: "success",
           });
-          setShow(false)
-          // Reset the form data
+          setShow(false);
           setFormData({
             itemname: "",
             description: "",
@@ -86,30 +117,24 @@ export const UserProvider = ({ children }) => {
             unitPrice: "",
             initialQuantity: "",
             expirationDate: "",
-            imageUpload: null, // Reset imageUpload to null
+            imageUpload: null,
           });
-
-          // Reset the input field value for file upload
           const fileInput = document.getElementById("imageUpload");
           if (fileInput) {
-            fileInput.value = ""; // Reset the file input value
+            fileInput.value = "";
           }
-        })
-        .catch((err) => {
-          // Error callback
-          Swal({
-            // Display error alert
-            title: "Error",
-            text: "Error adding item to inventory",
-            icon: "error",
-          });
-          console.error("Error adding item to inventory:", err);
         });
+      } catch (err) {
+        Swal({
+          title: "Error",
+          text: "Error adding item to inventory",
+          icon: "error",
+        });
+        console.error("Error adding item to inventory:", err);
+      }
     }
   }
-console.log(formData);
-console.log(existing);
-  // Return the context provider with context values and children components
+
   return (
     <UserContext.Provider
       value={{
@@ -122,15 +147,18 @@ console.log(existing);
         columns,
         handleClose,
         handleShow,
-        show
+        show,
+        cataroty,
+        setLoading,
+        loading,
+        error
       }}
     >
-      {children} {/* Render children components */}
+      {children}
     </UserContext.Provider>
   );
 };
 
-// Define AddItemContext functional component to access context values
 export const AddItemContext = () => {
-  return useContext(UserContext); // Return useContext hook with UserContext
+  return useContext(UserContext);
 };

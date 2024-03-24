@@ -9,18 +9,7 @@ function Example() {
   const getData = AddItemContext();
 
   // Destructuring values from context
-  const {
-    formData,
-    setFormData,
-    handleFormSubmit,
-    error,
-    setError,
-    existing,
-    handleShow,
-    handleClose,
-    show,
-    setShow,
-  } = getData;
+  const { formData, handleFormSubmit, handleClose, show } = getData;
 
   return (
     <>
@@ -30,8 +19,8 @@ function Example() {
         animation={false}
         style={{ zIndex: "9999" }}
       >
-        <Modal.Header closeButton>
-          <Modal.Title className="title">PREVIEW ITEM</Modal.Title>
+        <Modal.Header closeButton className="submit-btn">
+          <Modal.Title className="title ">PREVIEW ITEM</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <table className="table w-100  table-responsive table-striped table-bordered">
@@ -79,11 +68,11 @@ function Example() {
             </thead>
           </table>
         </Modal.Body>
-        <Modal.Footer>
+        <Modal.Footer  >
           <Button variant="warning" onClick={handleClose}>
             Back
           </Button>
-          <Button className="btn submit-btn"  onClick={handleFormSubmit}>
+          <Button className="btn submit-btn" onClick={handleFormSubmit}>
             Submit
           </Button>
         </Modal.Footer>

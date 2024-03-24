@@ -19,6 +19,7 @@ function AddItem() {
     setError,
     existing,
     handleShow,
+    cataroty,
   } = getData;
 
   const [unitPriceError, setUnitPriceError] = useState(false);
@@ -35,16 +36,13 @@ function AddItem() {
 
   const handleFileChange = (e) => {
     setFormData({ ...formData, imageUpload: e.target.files[0].name });
- 
   };
- 
 
   // useEffect to check form validity whenever formData changes
   useEffect(() => {
     // Check if all required fields are filled
     const isValid =
       formData.itemname &&
-    
       formData.category &&
       formData.manufacturer &&
       formData.unitOfMeasure &&
@@ -52,7 +50,7 @@ function AddItem() {
       formData.initialQuantity;
     setIsFormValid(isValid); // Update form validity state
   }, [formData]);
-
+  console.log(cataroty);
   return (
     <>
       <Header />
@@ -107,29 +105,36 @@ function AddItem() {
 
             {/* Category */}
             <div className="p-2 col-lg-6 col-md-6 col-sm-12">
-              <label htmlFor="category" className="form-label">
-                category <span>*</span>
-              </label>
-              <select
-                name="category"
-                id="category"
-                className="form-control"
-                value={formData.category}
-                onChange={(e) =>
-                  setFormData({ ...formData, category: e.target.value })
-                }
-                required
-              >
-                <option value="" disabled>
-                  Select...
-                </option>
-                <option value="medical">Medical</option>
-                <option value="ot">OT</option>
-                <option value="icu">ICU</option>
-                <option value="nicu">NICU</option>
-                <option value="MedicalSupplies">Medical Supplies</option>
-              </select>
-            </div>
+  <label htmlFor="category" className="form-label">
+    category <span>*</span>
+  </label>
+
+  <select
+    name="category"
+    id="category"
+    className="form-control"
+    value={formData.category}
+    onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+    required
+  >
+    {error ? (
+      <option value="">Error fetching categories</option>
+    ) : (
+      <option value="" disabled>
+        Select...
+      </option>
+    )}
+ 
+    {cataroty.map((eachCategory) => (
+      <option key={eachCategory.id} value={eachCategory.catagory}>
+        {eachCategory.catagory}
+      </option>
+    ))}
+     
+  </select>
+</div>
+
+
 
             {/* Manufacturer */}
             <div className="p-2 col-lg-6 col-md-6 col-sm-12">
@@ -262,7 +267,9 @@ function AddItem() {
             </label>
             <div className="mb-3 p-2 col-lg-12 col-md-12 col-sm-12 ">
               <label htmlFor="imageUpload" className="form-label  imageUpload">
-              {formData.imageUpload ? formData.imageUpload:"Choose file...."}
+                {formData.imageUpload
+                  ? formData.imageUpload
+                  : "Choose file...."}
                 <input
                   type="file"
                   className="form-control"
@@ -284,22 +291,24 @@ function AddItem() {
                     alt="Not Available"
                     style={{ maxWidth: "10%", height: "50px" }}
                   />
-                  
                 </div>
               )}
             </div>
           </div>
+
           <div className="submit_btn d-flex justify-content-end" style={style}>
             <Button
               variant="primary"
               onClick={handleShow}
               disabled={!isFormValid}
+              className="submit-btn"
             >
               PREVIEW
             </Button>
           </div>
         </form>
       </div>
+      
     </>
   );
 }

@@ -9,10 +9,12 @@
   --main-head-color: #d8d2d2;
   --main-nav-color: #bbb9b5;
   --main-body-color: #eeedeb;
-  --main-blue-color: rgb(3, 3, 96);
+  --main-blue-color: #01063D;
   --main-blueHover-color: rgba(18, 18, 127, 0.855);
   --main-label-color: rgba(90, 86, 86, 0.647);
   --main-white-color: rgb(255, 255, 255);
+  --main-btn_sec-color:#0012FE;
+
 }
 body {
   background-color: var(--main-body-color);
@@ -22,6 +24,13 @@ h1 {
 }
 h2 {
   font-size: 20px;
+}
+/* Loading */
+.sweet-loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 /* Styles the header element */
@@ -143,7 +152,7 @@ form {
   cursor: pointer;
 }
 .submit-btn {
-  background-color: var(--main-blue-color)!important;
+  background:linear-gradient(45deg,#01063D,#0012FE) ;
   color: var(--main-white-color);
   text-transform: uppercase;
 }

@@ -13,40 +13,146 @@
       "imageUpload": "contec-pulse-oximeter-cms50d-600x600.png"
     },
     {
-      "itemname": "bandages",
-      "description": "fgdfg",
+      "itemname": "oximeter12",
+      "description": "assoite Oximeter",
       "category": "medical",
-      "manufacturer": "abc",
+      "manufacturer": "chiler",
       "unitOfMeasure": "box",
-      "unitPrice": 76,
-      "initialQuantity": 56445,
+      "unitPrice": 55,
+      "initialQuantity": 4,
       "expirationDate": "2024-03-24",
-      "imageUpload": "BGGG.jpg",
+      "imageUpload": "pharmacist.jpg",
       "id": 2001
     },
     {
-      "itemname": "bandages",
-      "description": "ghfh",
+      "itemname": "oximeter",
+      "description": "assoite Oximeter",
       "category": "medical",
-      "manufacturer": "abc",
-      "unitOfMeasure": "box",
-      "unitPrice": 76,
-      "initialQuantity": 56445,
+      "manufacturer": "chiler",
+      "unitOfMeasure": "strips",
+      "unitPrice": 56,
+      "initialQuantity": 6,
       "expirationDate": "2024-03-24",
-      "imageUpload": "contec-pulse-oximeter-cms50d-600x600.png",
+      "imageUpload": "top11.png",
       "id": 2002
     },
     {
-      "itemname": "oximeter",
-      "description": "ghfh",
-      "category": "ot",
-      "manufacturer": "abc1",
-      "unitOfMeasure": "strips",
-      "unitPrice": 54,
-      "initialQuantity": 56445,
+      "itemname": "oximeter12",
+      "description": "assoite Oximeter",
+      "category": "medical",
+      "manufacturer": "chiler12",
+      "unitOfMeasure": "box",
+      "unitPrice": 8,
+      "initialQuantity": 25,
       "expirationDate": "2024-03-24",
-      "imageUpload": "pharmacist.jpg",
+      "imageUpload": "svg-close-icon-13.jpg",
       "id": 2003
+    },
+    {
+      "itemname": "bandages",
+      "description": "assoite Oximeter",
+      "category": "medical",
+      "manufacturer": "chiler12",
+      "unitOfMeasure": "box",
+      "unitPrice": 8,
+      "initialQuantity": 25,
+      "expirationDate": "",
+      "imageUpload": null,
+      "id": 2004
+    },
+    {
+      "itemname": "bandages",
+      "description": "assoite Oximeter",
+      "category": "Imaging Equipment",
+      "manufacturer": "chiler",
+      "unitOfMeasure": "strips",
+      "unitPrice": 15,
+      "initialQuantity": 25,
+      "expirationDate": "2024-03-24",
+      "imageUpload": "Crepe-bandage-768x768.png",
+      "id": 2005
+    }
+  ],
+  "Catagory": [
+    {
+      "id": 1,
+      "catagory": "Medication"
+    },
+    {
+      "id": 2,
+      "catagory": "Medical Supplies"
+    },
+    {
+      "id": 3,
+      "catagory": "Diagnostic Equipment"
+    },
+    {
+      "id": 4,
+      "catagory": "Surgical Instruments"
+    },
+    {
+      "id": 5,
+      "catagory": "Patient Care Products"
+    },
+    {
+      "id": 6,
+      "catagory": "Personal Protective Equipment (PPE)"
+    },
+    {
+      "id": 7,
+      "catagory": "Laboratory Supplies"
+    },
+    {
+      "id": 8,
+      "catagory": "Rehabilitation Equipment"
+    },
+    {
+      "id": 9,
+      "catagory": "Durable Medical Equipment (DME)"
+    },
+    {
+      "id": 10,
+      "catagory": "Pharmaceuticals"
+    },
+    {
+      "id": 11,
+      "catagory": "Emergency and Trauma"
+    },
+    {
+      "id": 12,
+      "catagory": "Respiratory Therapy"
+    },
+    {
+      "id": 13,
+      "catagory": "Imaging Equipment"
+    },
+    {
+      "id": 14,
+      "catagory": "Wound Care"
+    },
+    {
+      "id": 15,
+      "catagory": "Sterilization and Disinfection"
+    },
+    {
+      "id": 16,
+      "catagory": "Patient Monitoring"
+    },
+    {
+      "id": 17,
+      "catagory": "Orthopedic Devices"
+    },
+    {
+      "id": 18,
+      "catagory": "Dental Supplies"
+    },
+    {
+      "id": 19,
+      "catagory": "Home Healthcare"
+    },
+    {
+      "id": 20,
+      "catagory": "Nutrition and Dietary"
     }
   ]
 }
