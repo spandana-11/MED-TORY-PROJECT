@@ -3,13 +3,16 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { AddItemContext } from "../UseContext/UseContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEyeDropper } from "@fortawesome/free-solid-svg-icons";
 
 function Example() {
   // Retrieve data from context
   const getData = AddItemContext();
 
   // Destructuring values from context
-  const { formData, handleFormSubmit, handleClose, show } = getData;
+  const { formData, handleFormSubmit, handleClose, show, imagePreview } =
+    getData;
 
   return (
     <>
@@ -19,6 +22,7 @@ function Example() {
         animation={false}
         style={{ zIndex: "9999" }}
       >
+ 
         <Modal.Header closeButton className="submit-btn">
           <Modal.Title className="title ">PREVIEW ITEM</Modal.Title>
         </Modal.Header>
@@ -31,7 +35,7 @@ function Example() {
               </tr>
               <tr>
                 <th>Description</th>
-                <td>{formData.description}</td>
+                <td>{formData.description || "NA"}</td>
               </tr>
               <tr>
                 <th>Categories</th>
@@ -43,7 +47,7 @@ function Example() {
               </tr>
               <tr>
                 <th>Unit Measures</th>
-                <td>{formData.unitOfMeasure}</td>
+                <td>{formData.unitOfMeasure || "NA"}</td>
               </tr>
               <tr>
                 <th>Unit Price</th>
@@ -55,20 +59,33 @@ function Example() {
               </tr>
               <tr>
                 <th>ExpireDate</th>
-                <td>{formData.expirationDate}</td>
+                <td>{formData.expirationDate || "NA"}</td>
               </tr>
               <tr>
                 <th>Uploadimage </th>
-                <img
-                  src={`images/${formData.imageUpload}`}
-                  alt=""
-                  width={"40%"}
-                />
+                <td>
+                  {" "}
+                  {imagePreview ? "" : "Not Uploaded"}
+                  <a
+                    href={imagePreview}
+                    target="_blank"
+                    style={{ width: "100%" }}
+                  >
+                    <img
+                      src={imagePreview || "NA"}
+                      style={{
+                        maxWidth: "30%",
+                        padding: "5px",
+                        maxHeight: "50px",
+                      }}
+                    />
+                  </a>
+                </td>
               </tr>
             </thead>
           </table>
         </Modal.Body>
-        <Modal.Footer  >
+        <Modal.Footer>
           <Button variant="warning" onClick={handleClose}>
             Back
           </Button>

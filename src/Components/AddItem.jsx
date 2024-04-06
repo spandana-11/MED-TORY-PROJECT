@@ -20,6 +20,8 @@ function AddItem() {
     existing,
     handleShow,
     cataroty,
+    setImagePreview,
+    imagePreview,
   } = getData;
 
   const [unitPriceError, setUnitPriceError] = useState(false);
@@ -36,6 +38,8 @@ function AddItem() {
 
   const handleFileChange = (e) => {
     setFormData({ ...formData, imageUpload: e.target.files[0].name });
+    setImagePreview(URL.createObjectURL(e.target.files[0]));
+    console.log(imagePreview);
   };
 
   // useEffect to check form validity whenever formData changes
@@ -105,36 +109,35 @@ function AddItem() {
 
             {/* Category */}
             <div className="p-2 col-lg-6 col-md-6 col-sm-12">
-  <label htmlFor="category" className="form-label">
-    category <span>*</span>
-  </label>
+              <label htmlFor="category" className="form-label">
+                category <span>*</span>
+              </label>
 
-  <select
-    name="category"
-    id="category"
-    className="form-control"
-    value={formData.category}
-    onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-    required
-  >
-    {error ? (
-      <option value="">Error fetching categories</option>
-    ) : (
-      <option value="" disabled>
-        Select...
-      </option>
-    )}
- 
-    {cataroty.map((eachCategory) => (
-      <option key={eachCategory.id} value={eachCategory.catagory}>
-        {eachCategory.catagory}
-      </option>
-    ))}
-     
-  </select>
-</div>
+              <select
+                name="category"
+                id="category"
+                className="form-control"
+                value={formData.category}
+                onChange={(e) =>
+                  setFormData({ ...formData, category: e.target.value })
+                }
+                required
+              >
+                {error ? (
+                  <option value="">Error fetching categories</option>
+                ) : (
+                  <option value="" disabled>
+                    Select...
+                  </option>
+                )}
 
-
+                {cataroty.map((eachCategory) => (
+                  <option key={eachCategory.id} value={eachCategory.catagory}>
+                    {eachCategory.catagory}
+                  </option>
+                ))}
+              </select>
+            </div>
 
             {/* Manufacturer */}
             <div className="p-2 col-lg-6 col-md-6 col-sm-12">
@@ -181,6 +184,19 @@ function AddItem() {
                 <option value="strips">Strips</option>
                 <option value="mg">Mg</option>
                 <option value="bottle">Bottle</option>
+                <option value="Bandle">Bandle</option>
+                <option value="Bag">Bag</option>
+                <option value="Carton">Carton</option>
+                <option value="Jar">Jar</option>
+                <option value="Kit">Kit</option>
+                <option value="Pack">Pack</option>
+                <option value="Pallet">Pallet</option>
+                <option value="Roll">Roll</option>
+                <option value="Tube">Tube</option>
+                <option value="Each">Each</option>
+                <option value="Grams">Grams</option>
+                <option value="Gallon">Gallon</option>
+                <option value="Ml">Ml</option>
               </select>
             </div>
 
@@ -194,6 +210,7 @@ function AddItem() {
                 className="form-control"
                 id="unitPrice"
                 name="unitPrice"
+                min="0"
                 value={formData.unitPrice}
                 onChange={(e) => {
                   const inputValue = e.target.value;
@@ -224,6 +241,7 @@ function AddItem() {
                 className="form-control"
                 id="initialQuantity"
                 name="initialQuantity"
+                min="0"
                 value={formData.initialQuantity}
                 onChange={(e) => {
                   const inputValue = e.target.value;
@@ -262,11 +280,12 @@ function AddItem() {
             </div>
 
             {/* Image Upload */}
-            <label htmlFor="UploadImage" className="form-label ms-2">
-              Upload Image (jpg,png,peg)
+
+            <label htmlFor="imageUpload" className="form-label ms-2">
+              Upload Image (jpg, png, jpeg)
             </label>
             <div className="mb-3 p-2 col-lg-12 col-md-12 col-sm-12 ">
-              <label htmlFor="imageUpload" className="form-label  imageUpload">
+              <label htmlFor="imageUpload" className="form-label imageUpload">
                 {formData.imageUpload
                   ? formData.imageUpload
                   : "Choose file...."}
@@ -287,15 +306,15 @@ function AddItem() {
                 <div className="mb-3 p-2 col-lg-12 col-md-12 col-sm-12">
                   <label className="form-label mx-3">Uploaded Image</label>
                   <img
-                    src={`images/${formData.imageUpload}`}
-                    alt="Not Available"
+                    src={imagePreview}
+                    alt="Uploaded"
                     style={{ maxWidth: "10%", height: "50px" }}
                   />
                 </div>
               )}
             </div>
           </div>
-
+          {/* Preview Button */}
           <div className="submit_btn d-flex justify-content-end" style={style}>
             <Button
               variant="primary"
@@ -308,7 +327,6 @@ function AddItem() {
           </div>
         </form>
       </div>
-      
     </>
   );
 }

@@ -1,76 +1,88 @@
 {
   "ItemData": [
     {
-      "id": 2000,
-      "itemname": "oximeter",
-      "description": "oximeter",
-      "category": " MedicalSupplies",
-      "manufacturer": "abc",
-      "unitOfMeasure": "box",
-      "unitPrice": 8,
-      "initialQuantity": 14,
-      "expirationDate": "2024-03-22",
+      "id": "1712242196210",
+      "itemname": "avil",
+      "description": "hgj",
+      "category": "Patient Monitoring",
+      "manufacturer": "avil",
+      "unitOfMeasure": "Grams",
+      "unitPrice": 78,
+      "initialQuantity": 787,
+      "expirationDate": "2024-04-26",
       "imageUpload": "contec-pulse-oximeter-cms50d-600x600.png"
     },
     {
-      "itemname": "oximeter12",
+      "id": "1712298839296",
+      "itemname": "bandages123",
       "description": "assoite Oximeter",
-      "category": "medical",
-      "manufacturer": "chiler",
-      "unitOfMeasure": "box",
-      "unitPrice": 55,
-      "initialQuantity": 4,
-      "expirationDate": "2024-03-24",
-      "imageUpload": "pharmacist.jpg",
-      "id": 2001
+      "category": "Patient Monitoring",
+      "manufacturer": "fgf",
+      "unitOfMeasure": "Each",
+      "unitPrice": 78,
+      "initialQuantity": 787,
+      "expirationDate": "2024-04-26",
+      "imageUpload": "Logo-02-1x1.png"
     },
     {
-      "itemname": "oximeter",
-      "description": "assoite Oximeter",
-      "category": "medical",
-      "manufacturer": "chiler",
-      "unitOfMeasure": "strips",
-      "unitPrice": 56,
-      "initialQuantity": 6,
-      "expirationDate": "2024-03-24",
-      "imageUpload": "top11.png",
-      "id": 2002
-    },
-    {
-      "itemname": "oximeter12",
-      "description": "assoite Oximeter",
-      "category": "medical",
-      "manufacturer": "chiler12",
-      "unitOfMeasure": "box",
-      "unitPrice": 8,
-      "initialQuantity": 25,
-      "expirationDate": "2024-03-24",
-      "imageUpload": "svg-close-icon-13.jpg",
-      "id": 2003
-    },
-    {
+      "id": "1712310583410",
       "itemname": "bandages",
       "description": "assoite Oximeter",
-      "category": "medical",
-      "manufacturer": "chiler12",
-      "unitOfMeasure": "box",
-      "unitPrice": 8,
-      "initialQuantity": 25,
-      "expirationDate": "",
-      "imageUpload": null,
-      "id": 2004
+      "category": "Wound Care",
+      "manufacturer": "chiler",
+      "unitOfMeasure": "Pallet",
+      "unitPrice": 564,
+      "initialQuantity": 54654,
+      "expirationDate": "2024-04-24",
+      "imageUpload": "pharmacist.jpg"
     },
     {
+      "id": "1712310720990",
+      "itemname": "bandages1",
+      "description": "assoite Oximeter",
+      "category": "Laboratory Supplies",
+      "manufacturer": "chiler",
+      "unitOfMeasure": "Each",
+      "unitPrice": 45,
+      "initialQuantity": 45,
+      "expirationDate": "2024-04-26",
+      "imageUpload": "solutions_bsys_img2.jpg"
+    },
+    {
+      "id": "1712393732554",
       "itemname": "bandages",
       "description": "assoite Oximeter",
-      "category": "Imaging Equipment",
-      "manufacturer": "chiler",
-      "unitOfMeasure": "strips",
-      "unitPrice": 15,
-      "initialQuantity": 25,
-      "expirationDate": "2024-03-24",
-      "imageUpload": "Crepe-bandage-768x768.png",
-      "id": 2005
+      "category": "Patient Monitoring",
+      "manufacturer": "chiler45",
+      "unitOfMeasure": "Tube",
+      "unitPrice": 78,
+      "initialQuantity": 787,
+      "expirationDate": "2024-04-17",
+      "imageUpload": "contec-pulse-oximeter-cms50d-600x600.png"
+    },
+    {
+      "itemname": "bandages1",
+      "description": "assoite Oximeter",
+      "category": "Orthopedic Devices",
+      "manufacturer": "chiler12",
+      "unitOfMeasure": "Each",
+      "unitPrice": 45,
+      "initialQuantity": 45,
+      "expirationDate": "2024-04-26",
+      "imageUpload": "Logo-02-1x1.png",
+      "id": "pZnf5zT"
+    },
+    {
+      "id": "1712393997476",
+      "itemname": "bandages1",
+      "description": "assoite Oximeter",
+      "category": "Diagnostic Equipment",
+      "manufacturer": "chiler123",
+      "unitOfMeasure": "Each",
+      "unitPrice": 45,
+      "initialQuantity": 45,
+      "expirationDate": "2024-05-08",
+      "imageUpload": null
     }
   ],
   "Catagory": [
@@ -153,6 +165,13 @@
     {
       "id": 20,
       "catagory": "Nutrition and Dietary"
+    }
+  ],
+  "upload": [
+    {
+      "itemName": "",
+      "description": "",
+      "imageUpload": ""
     }
   ]
 }

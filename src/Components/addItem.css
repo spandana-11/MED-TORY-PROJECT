@@ -9,11 +9,11 @@
   --main-head-color: #d8d2d2;
   --main-nav-color: #bbb9b5;
   --main-body-color: #eeedeb;
-  --main-blue-color: #01063D;
+  --main-blue-color: #01063d;
   --main-blueHover-color: rgba(18, 18, 127, 0.855);
   --main-label-color: rgba(90, 86, 86, 0.647);
   --main-white-color: rgb(255, 255, 255);
-  --main-btn_sec-color:#0012FE;
+  --main-btn_sec-color: #0012fe;
 
 }
 body {
@@ -21,9 +21,17 @@ body {
 }
 h1 {
   font-size: 24px;
+
 }
 h2 {
   font-size: 20px;
+}
+.line-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp:1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+ 
 }
 /* Loading */
 .sweet-loading {
@@ -42,6 +50,20 @@ header {
   top: 0;
   left: 0;
   background-color: var(--main-head-color);
+}
+.loggedUser {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.loggedUser .loggedPic {
+  scale: 2;
+  padding-right: 10px;
+}
+.loggedUser .loggedName {
+  width: 120px;
+  text-align: center;
+  overflow-wrap: break-word;
 }
 .navber1 {
   position: relative;
@@ -148,11 +170,11 @@ form {
 }
 .inputFields .faCloudArrowUp {
   font-size: 22px;
-  color: var(--main-blue-color) ;
+  color: var(--main-blue-color);
   cursor: pointer;
 }
 .submit-btn {
-  background:linear-gradient(45deg,#01063D,#0012FE) ;
+  background: linear-gradient(45deg, #01063d, #0012fe);
   color: var(--main-white-color);
   text-transform: uppercase;
 }
@@ -164,3 +186,17 @@ form {
 /* .imageUpload{
 display: flex;
 } */
+/* =============Preview============ */
+
+/* InputData */
+.Icon_Btn {
+  display: flex;
+  height: 100%;
+}
+.description {
+  max-width: 200px;
+}
+ 
+.sc-gswONk {
+font-weight: 600 !important;
+}
