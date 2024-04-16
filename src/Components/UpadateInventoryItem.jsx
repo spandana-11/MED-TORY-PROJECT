@@ -22,7 +22,9 @@ function UpdateInventoryItems() {
     setImagePreview,
     imagePreview,
     getItemData,
+    handleFileChange
   } = getData;
+  console.log(imagePreview);
   const style = {
     width: "70%",
     marginLeft: "auto",
@@ -60,11 +62,11 @@ function UpdateInventoryItems() {
   }
 
   // For Image Upload
-  const handleFileChange = (e) => {
-    setFormData({ ...formData, imageUpload: e.target.files[0].name });
-    setImagePreview(URL.createObjectURL(e.target.files[0]));
-    console.log(imagePreview);
-  };
+  // const handleFileChange = (e) => {
+  //   setFormData({ ...formData, imageUpload: e.target.files[0].name });
+  //   setImagePreview(URL.createObjectURL(e.target.files[0]));
+  //   console.log(imagePreview);
+  // };
   // render
   return (
     <div className="d-flex w-100 justify-content-center align-items-center">

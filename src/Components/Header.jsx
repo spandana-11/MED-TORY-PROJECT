@@ -1,10 +1,15 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
+import { faBell, faCircleUser } from "@fortawesome/free-solid-svg-icons";
+import { AddItemContext } from "../UseContext/UseContext";
+import Notification from './Notification'
 const Header = () => {
-  const [isLoggedUser,setIsLoggedUser]=useState("Banavath Prashanth")
-  
+  const[notiShow,setnotiShow]=useState(false);
+  const { filteredData, reorderData } = AddItemContext();
+  const [isLoggedUser, setIsLoggedUser] = useState("Banavath Prashanth");
+
+  console.log(reorderData);
   return (
     <>
       {/* Header Section */}
@@ -17,6 +22,25 @@ const Header = () => {
             <FontAwesomeIcon icon={faCircleUser} />
           </div>
           <div className="loggedName">{isLoggedUser}</div>
+
+          <Link
+ 
+            style={{ textDecoration: "none", color: "black" }}
+          >
+            {" "}
+            <FontAwesomeIcon icon={faBell} style={{ fontSize: "25px" }} onClick={()=>setnotiShow(!notiShow)}/>
+            <sup
+              style={{
+                fontSize: "20px",
+                color: "white",
+                backgroundColor: "red",
+                padding: "3px 7px",
+                borderRadius: "50%",
+              }}
+            >
+              {reorderData.length}
+            </sup>
+          </Link>
         </div>
         <br />
       </header>
@@ -32,6 +56,10 @@ const Header = () => {
           </NavLink>
         </ul>
       </nav>
+      {
+        notiShow&& <Notification />
+      }
+     
     </>
   );
 };

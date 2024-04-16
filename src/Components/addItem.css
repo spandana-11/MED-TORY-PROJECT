@@ -14,24 +14,21 @@
   --main-label-color: rgba(90, 86, 86, 0.647);
   --main-white-color: rgb(255, 255, 255);
   --main-btn_sec-color: #0012fe;
-
 }
 body {
   background-color: var(--main-body-color);
 }
 h1 {
   font-size: 24px;
-
 }
 h2 {
   font-size: 20px;
 }
 .line-clamp {
   display: -webkit-box;
-  -webkit-line-clamp:1;
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
- 
 }
 /* Loading */
 .sweet-loading {
@@ -46,7 +43,7 @@ header {
   display: flex;
   height: 70px;
   position: fixed;
-  z-index: 9999;
+  z-index: 9990;
   top: 0;
   left: 0;
   background-color: var(--main-head-color);
@@ -119,10 +116,25 @@ form {
 .addItem {
   font-size: 24px;
 }
-
+.category::-webkit-scrollbar{
+display: none;
+background-color: red;
+}
 /* Styles <div> elements within .inputFields */
-.inputFields div {
+.inputFields .field {
   height: 95px;
+}
+.inputFields .field  label{
+  text-transform: uppercase;
+}
+.searchWrapper {
+  border: 1px solid var(--main-label-color) !important;
+  height: 38px;
+  border-radius: 15px;
+  overflow-y: scroll;
+}
+.searchWrapper::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for WebKit browsers */
 }
 .inputFields input,
 .inputFields select {
@@ -182,10 +194,13 @@ form {
   background-color: var(--main-blueHover-color);
   color: var(--main-white-color);
 }
+select {
+  -webkit-appearance: none; /* Disable default arrow for Safari */
+  -moz-appearance: none; /* Disable default arrow for Firefox */
+  appearance: none; /* Disable default arrow */
+  overflow: hidden; /* Hide scrollbar */
+}
 
-/* .imageUpload{
-display: flex;
-} */
 /* =============Preview============ */
 
 /* InputData */
@@ -193,10 +208,54 @@ display: flex;
   display: flex;
   height: 100%;
 }
-.description {
-  max-width: 200px;
-}
- 
+
 .sc-gswONk {
-font-weight: 600 !important;
+  font-weight: 600 !important;
 }
+
+/* Notification */
+.notification {
+  z-index: 9999;
+  position: absolute;
+  width: 300px;
+  top: 70px;
+  right: 0;
+  height: 100vh;
+  background-color: #bbb9b5;
+}
+/* multiSelect */
+#search_input {
+  /* background-color: transparent; */
+  border: none !important;
+  border: 1px solid var(--main-label-color);
+}
+.chip {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #0096fb;
+  border-radius: 6px;
+  color: #fff !important;
+  /* height: 20px !important; */
+}
+#suppliers{
+  appearance: none;
+  /* overflow: hidden; */
+}
+
+.iserror {
+  position: relative;
+  top: -30px;
+  left: 10px;
+  z-index: -1;
+}
+/* viewDetails */
+.viewDetails {
+  padding: 10px 5px;
+}
+.viewDetails span,
+b {
+  background-color: #f6f6f5ce;
+  padding: 5px;
+}
+
