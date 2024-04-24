@@ -199,29 +199,28 @@ function AddItem() {
               <select
                 name="unitOfMeasure"
                 id="unitOfMeasure"
-                className="form-control  "
+                className="form-control"
                 value={formData.unitOfMeasure}
                 onChange={(e) =>
                   setFormData({ ...formData, unitOfMeasure: e.target.value })
                 }
                 required
               >
-                <div className="categoey">
-                  {error ? (
-                    <option value="" className="text-danger">
-                      Error fetching unitOfMeasure
-                    </option>
-                  ) : (
-                    <option value="" disabled>
-                      Select...
-                    </option>
-                  )}
-                  {unitMeasure.map((eachMesure) => (
-                    <option key={eachMesure.id} value={eachMesure.catagory}>
-                      {eachMesure.mesure}
-                    </option>
-                  ))}
-                </div>
+                {error ? (
+                  <option value="" className="text-danger">
+                    Error fetching unitOfMeasure
+                  </option>
+                ) : (
+                  <option value="" disabled>
+                    Select...
+                  </option>
+                )}
+
+                {unitMeasure.map((eachMesure) => (
+                  <option key={eachMesure.id} value={eachMesure.catagory}>
+                    {eachMesure.mesure}
+                  </option>
+                ))}
               </select>
             </div>
 

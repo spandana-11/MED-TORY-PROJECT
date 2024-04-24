@@ -175,7 +175,7 @@ function Example() {
             </div>
             <div className="col-4 viewDetails">
               <b>suppliers:</b>
-              <span>{(data.suppliers) }</span>
+              <span>{data.suppliers}</span>
             </div>
             <div className="col-4 viewDetails">
               <b>Expiration Date:</b>

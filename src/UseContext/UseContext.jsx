@@ -51,7 +51,7 @@ export const UserProvider = ({ children }) => {
 
   // Initial form data state
   const [formData, setFormData] = useState({
-    id: new Date().getTime().toString(),
+    id: new Date().getTime().toString().slice(-7),
     itemname: "",
     description: "",
     category: "",

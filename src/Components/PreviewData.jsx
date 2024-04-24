@@ -41,100 +41,99 @@ function Example() {
         {/* Modal body */}
         <Modal.Body>
           {/* Table to display item details */}
-          <table className="table w-100  table-responsive table-striped table-bordered d-flex">
-            <thead>
-              {/* SKU */}
-              <tr>
-                <th className="w-50">#SKU</th>
-                <td>{formDataWithSKU.sku}</td>
-              </tr>
 
-              {/* Item Name */}
-              <tr>
-                <th className="w-50">ItemName</th>
-                <td>{formData.itemname}</td>
-              </tr>
+          <div className="table-flex">
+            {/* SKU */}
+            <div className="row-flex col-6">
+              <b className="w-50">#SKU</b>
+              <p>{formDataWithSKU.sku}</p>
+            </div>
 
-              {/* Description */}
-              <tr>
-                <th>Description</th>
-                <td>{formData.description || "NA"}</td>
-              </tr>
+            {/* Item Name */}
+            <div className="row-flex  col-6">
+              <b className="w-50">ItemName</b>
+              <p>{formData.itemname}</p>
+            </div>
 
-              {/* Category */}
-              <tr>
-                <th>Categories</th>
-                <td>{formData.category}</td>
-              </tr>
+            {/* Description */}
+            <div className="row-flex col-6">
+              <b className="w-50">Description</b>
+              <p>{formData.description || "NA"}</p>
+            </div>
 
-              {/* Manufacturer */}
-              <tr>
-                <th>Manufactures</th>
-                <td>{formData.manufacturer}</td>
-              </tr>
+            {/* Category */}
+            <div className="row-flex col-6">
+              <b className="w-50">Categories</b>
+              <p>{formData.category}</p>
+            </div>
 
-              {/* Unit of Measure */}
-              <tr>
-                <th>Unit Measures</th>
-                <td>{formData.unitOfMeasure || "NA"}</td>
-              </tr>
-            </thead>
-            <thead>
-              {/* Unit Price */}
-              <tr>
-                <th>Unit Price</th>
-                <td>{formData.unitPrice}</td>
-              </tr>
+            {/* Manufacturer */}
+            <div className="row-flex col-6">
+              <b className="w-50">Manufactures</b>
+              <p>{formData.manufacturer}</p>
+            </div>
 
-              {/* Initial Quantity */}
-              <tr>
-                <th>InitialQuantity</th>
-                <td>{formData.initialQuantity}</td>
-              </tr>
+            {/* Unit of Measure */}
+            <div className="row-flex col-6">
+              <b className="w-50">Unit Measures</b>
+              <p>{formData.unitOfMeasure || "NA"}</p>
+            </div>
 
-              {/* Re-Order Level */}
-              <tr>
-                <th>Re-Order Level</th>
-                <td>{formData.reorderLevel}</td>
-              </tr>
+            {/* Unit Price */}
+            <div className="row-flex col-6">
+              <b className="w-50">Unit Price</b>
+              <p>{formData.unitPrice}</p>
+            </div>
 
-              {/* Suppliers */}
-              <tr>
-                <th>supplies</th>
-                <td>{formData.suppliers}</td>
-              </tr>
+            {/* Initial Quantity */}
+            <div className="row-flex col-6">
+              <b className="w-50">InitialQuantity</b>
+              <p>{formData.initialQuantity}</p>
+            </div>
 
-              {/* Expiry Date */}
-              <tr>
-                <th>ExpireDate</th>
-                <td>{formData.expirationDate || "NA"}</td>
-              </tr>
+            {/* Re-Order Level */}
+            <div className="row-flex col-6">
+              <b className="w-50">Re-Order Level</b>
+              <p>{formData.reorderLevel}</p>
+            </div>
 
-              {/* Uploaded Image */}
-              <tr>
-                <th>Uploadimage </th>
-                <td>
-                  {formData.imageUpload ? "" : "Not Uploaded"}{" "}
-                  {/* Display message if image not uploaded */}
-                  <a
-                    href={formData.imageUpload}
-                    target="_blank"
-                    style={{ width: "100%" }}
-                  >
-                    {/* Display uploaded image */}
-                    <img
-                      src={formData.imageUpload || "NA"}
-                      style={{
-                        maxWidth: "100%",
-                        padding: "5px",
-                        maxHeight: "50px",
-                      }}
-                    />
-                  </a>
-                </td>
-              </tr>
-            </thead>
-          </table>
+            {/* Suppliers */}
+            <div className="row-flex col-6">
+              <b className="w-50">supplies</b>
+              <p>{formData.suppliers}</p>
+            </div>
+
+            {/* Expiry Date */}
+            <div className="row-flex col-6">
+              <b className="w-50">ExpireDate</b>
+              <p>{formData.expirationDate || "NA"}</p>
+            </div>
+
+            {/* Uploaded Image */}
+            <div className="row-flex col-6">
+              <b className="w-50">Uploadimage </b>
+              <div>
+                <img src="./images/bg.jpg" alt="dsfds" width="40%" />
+                {formData.imageUpload ? "" : "Not Uploaded"}{" "}
+                {/* Display message if image not uploaded */}
+                <a
+                  href={formData.imageUpload}
+                  target="_blank"
+                  style={{ width: "100%" }}
+                >
+                  {/* Display uploaded image */}
+                  <img
+                    src={formData.imageUpload || "NA"}
+                    style={{
+                      maxWidth: "100%",
+                      padding: "5px",
+                      maxHeight: "50px",
+                    }}
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
         </Modal.Body>
 
         {/* Modal footer */}
