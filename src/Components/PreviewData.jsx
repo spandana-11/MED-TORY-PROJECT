@@ -113,7 +113,7 @@ function Example() {
             <div className="row-flex col-6">
               <b className="w-50">Uploadimage </b>
               <div>
-                <img src="./images/bg.jpg" alt="dsfds" width="40%" />
+                
                 {formData.imageUpload ? "" : "Not Uploaded"}{" "}
                 {/* Display message if image not uploaded */}
                 <a

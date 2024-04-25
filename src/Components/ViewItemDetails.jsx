@@ -8,14 +8,15 @@ import { faEyeDropper } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 
 import { Link, useNavigate, useParams } from "react-router-dom";
-function Example() {
+function ViewItem() {
+  const navigate=useNavigate();
   // Retrieve data from context
   const getData = AddItemContext();
 
   // Destructuring values from context
   const {
     imagePreview,
-
+    handleEdit,
     data,
     viewshow,
     setviewshow,
@@ -274,13 +275,17 @@ function Example() {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary">
-            <Link
-              to={`/update/${data.id}`}
+          <Button variant="primary"
+         
+              onClick={() => {
+                setviewshow(false)
+                handleEdit(data.id);
+                navigate("/");
+              }}
               style={{ color: "white", textDecoration: "none" }}
             >
               Edit
-            </Link>
+             
           </Button>
         </Modal.Footer>
       </Modal>
@@ -288,4 +293,4 @@ function Example() {
   );
 }
 
-export default Example;
+export default ViewItem;
