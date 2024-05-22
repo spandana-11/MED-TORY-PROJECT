@@ -67,6 +67,7 @@ function AddItem() {
   return (
     <>
       <Header />
+      <h1>hehjje</h1>
       <div className="d-flex w-100 justify-content-center align-items-center">
         <form className="col-4 w-75">
           <h1 className="text-center addItemTitle font-bold">ADD ITEM</h1>
