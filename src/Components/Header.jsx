@@ -59,7 +59,7 @@ const Header = () => {
       {
         notiShow&& <Notification />
       }
-     
+     <h1>Hello </h1>
     </>
   );
 };
